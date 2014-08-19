@@ -1,26 +1,56 @@
-web1:
-  document_root: web
-  shared_writable_dirs: [web/files]
-  php_version: 5.3.10
-  php_extensions: [mysql, curl, apc, gd, mbstring, zip, redis]
-  php_short_open_tab: "1"
-  php_file_uploads: "1"
-  php_upload_max_filesize: "20M"
-  php_max_file_uploads: 20
-  php_post_max_size: "20M"
-  php_session_save_handler: redis
-  php_session_save_path: "tcp://tunnel.pagodabox.com:6379"
-  before_deploy:
-    - "rm /var/www/web/files/cache/environment.cache 2>/dev/null; echo ENVIRONMENT_CACHE_CLEARED"
-  after_build:
-    - "cd -- /var/www/web; ln -s files/sitemap.xml sitemap.xml"
-
 global:
   env:
     - PAGODA_PRODUCTION: true
 
 db1:
   type: mysql
+  version: 5.5
+  stability: production
 
 cache1:
   type: redis
+
+storage1:
+  name: network_store
+  type: nfs
+
+web1:
+  # apache
+  httpd_document_root: web
+
+  # php.ini settings
+  type: php
+  version: 5.3
+  stability: production
+  php_date_timezone: "UTC"
+  php_default_locale: "en_US"
+  php_extensions:
+    - json
+    - mysql
+    - curl
+    - apc
+    - gd
+    - mbstring
+    - zip
+    - redis
+    - xml
+    - session
+    - pdo_mysql
+  php_short_open_tag: "1"
+  php_file_uploads: "1"
+  php_upload_max_filesize: "20M"
+  php_post_max_size: "20M"
+  php_max_file_uploads: 20
+  php_session_save_handler: "redis"
+  php_session_save_path: "tcp://tunnel.pagodabox.io:6379"
+
+  # network storage
+  network_dirs:
+    storage1:
+      - web/files
+
+build:
+  before_exec:
+    - "rm /data/web/files/cache/environment.cache 2>/dev/null; echo ENVIRONMENT_CACHE_CLEARED"
+  after_exec:
+    - "cd -- /data/web; ln -s files/sitemap.xml sitemap.xml"
