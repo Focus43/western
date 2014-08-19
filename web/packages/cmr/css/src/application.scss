@@ -1,0 +1,133 @@
+// Fonts
+@import url(http://fonts.googleapis.com/css?family=Rokkitt:400,700);
+@import url(http://fonts.googleapis.com/css?family=League+Script|Great+Vibes|Sacramento);
+
+// Custom vars
+$fa-font-path:                '/packages/cmr/bower_components/font-awesome/fonts/';
+$imagePath:                   '/packages/cmr/images/';
+$footerHeight:                450px;
+$earthMaroon:                 #4c2f2f;
+
+// Bootstrap vars
+$font-size-base:              16px;
+$font-family-base:            'Rokkitt', serif;
+
+// Imports
+@import 'compass';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/variables';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/mixins';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/scaffolding';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/normalize';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/type';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/grid';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/buttons';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/forms';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/utilities';
+@import '../../bower_components/bootstrap-sass/vendor/assets/stylesheets/bootstrap/responsive-utilities';
+@import '../../bower_components/font-awesome/scss/font-awesome';
+
+// Base
+html, body {font-weight:100;height:100%;font-size:$font-size-base;}
+body {background:url('#{$imagePath}textures/seamless_paper_texture.png') repeat;}
+img {@extend .img-responsive;display:inline-block;}
+a, a:hover {cursor:pointer;text-decoration:none;}
+.tabular {width:100%;height:100%;display:table;
+  .cellular {width:100%;height:100%;display:table-cell;vertical-align:middle;text-align:center;}
+}
+
+// Containers
+#cl-1 {min-height:100%;position:relative;padding-bottom:$footerHeight;}
+
+// Page types
+body.pt-home {
+  #cl-1 {height:100%;padding:0;}
+  #masthead {height:100%;width:100%;position:relative;z-index:0;background:url('#{$imagePath}photos/horses.jpg') no-repeat 50% 50%;background-size:cover;
+    .cellular {text-align:left;}
+    article {color:#fff;display:inline-block;max-width:500px;position:relative;
+      h2 {margin:0;padding:($grid-gutter-width/2);background:rgba(darken($earthMaroon, 15%),0.75);}
+      p {font-size:1.2rem;margin:0;padding:($grid-gutter-width/2) ($grid-gutter-width/2) 45px ($grid-gutter-width/2);background:rgba($earthMaroon,0.75);@include text-shadow(0 1px 0 #000);}
+      a {line-height:1;display:inline-block;padding:10px;position:absolute;bottom:0;right:0;background:darken($earthMaroon, 15%);color:lighten($earthMaroon, 15%);text-transform:uppercase;}
+    }
+    .diamonds {display:block;position:absolute;bottom:0;left:0;width:100%;height:27px;background:transparent url('#{$imagePath}triangle-pattern.png') repeat-x;}
+  }
+  #intro {position:relative;text-align:center;background:url('#{$imagePath}textures/seamless_paper_texture.png') repeat;z-index:2;
+    .inner {padding:($grid-gutter-width * 2);background:transparent url('#{$imagePath}images/map-bg.png') no-repeat;background-size:contain;
+      h1 {margin:0 0 ($grid-gutter-width/2);font-size:4rem;font-family:'Great Vibes',cursive;font-weight:bold;@include text-shadow(0 2px 0 #fff);}
+      p {font-size:1.8rem;max-width:1000px;margin:0 auto 1rem;}
+    }
+    .diamonds {display:block;position:absolute;width:100%;left:0;height:27px;
+      &.top {bottom:100%;background:transparent url('#{$imagePath}triangle-pattern.png') repeat-x;}
+      &.bottom {top:100%;background:transparent url('#{$imagePath}triangle-pattern-inverse.png') repeat-x;}
+    }
+  }
+  #activities {position:relative;height:50%;
+    .bg-full {position:absolute;top:0;left:0;right:0;bottom:0;background:url('#{$imagePath}photos/cowboys.jpg') no-repeat 50% 50%;background-size:cover;@include filter(grayscale(0.9) sepia(0.5));}
+    .cellular {color:#fff;position:relative;z-index:1;
+      h1 {margin:0;padding-bottom:($grid-gutter-width);font-size:5rem;font-family:'Great Vibes', cursive;font-weight:bold;@include text-shadow(0 0 10px #000);}
+      .list-inline {font-size:1.4rem;
+        a {color:lighten($earthMaroon, 35%);padding:($grid-gutter-width/2);line-height:1;display:block;background:rgba($earthMaroon, 0.9);@include text-shadow(0 1px 0 #000);@include transition(all 0.25s ease);
+          &:hover {background:$earthMaroon;color:#fff;}
+        }
+      }
+    }
+  }
+  #lodging {position:relative;z-index:3;
+    h1 {font-size:4rem;font-family:'Great Vibes', cursive;font-weight:bold;padding-bottom:($grid-gutter-width/2);}
+    .inner {padding:$grid-gutter-width $grid-gutter-width ($grid-gutter-width * 2);text-align:center;
+      .lodging {margin:0 auto $grid-gutter-width;max-width:1200px;
+        .lodge {cursor:pointer;position:relative;height:200px;background-size:cover;background-repeat:no-repeat;overflow:hidden;@include box-shadow(0 0 10px rgba(0,0,0,0.5));
+          span {font-size:1.5rem;line-height:1;color:lighten($earthMaroon, 42%);text-align:left; display:block;position:absolute;bottom:0;left:0;width:100%;padding:($grid-gutter-width/3);background:rgba($earthMaroon, 0.85);@include text-shadow(0 1px 0 #000);}
+          .learn-more {color:#fff;font-weight:100;position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background:rgba(0,0,0,0.9);opacity:0;visibility:hidden;@include transform(scale(1.3));@include transition(all 0.2s ease);
+            h4 {font-size:1.4rem;}
+          }
+          &:hover {
+            .learn-more {opacity:1;visibility:visible;@include transform(scale(1));}
+          }
+        }
+      }
+    }
+    .diamonds {display:block;position:absolute;width:100%;left:0;height:27px;
+      &.top {bottom:100%;background:transparent url('#{$imagePath}triangle-pattern.png') repeat-x;}
+    }
+  }
+  #footer-wrap {position:relative;padding-bottom:($footerHeight - 150px);}
+}
+
+// Nav
+nav {position:fixed;top:0;left:0;width:100%;height:5rem;line-height:1;background:#280b0b;z-index:11;
+  a {color:lighten($earthMaroon, 30%);}
+  .logo {display:block;font-size:2.4rem;padding:$grid-gutter-width/2 $grid-gutter-width;
+    span {display:block;font-size:1.1rem;letter-spacing:0.44rem;position:relative;top:-6px;}
+  }
+  ul {height:100%;margin:0;font-size:1.4rem;padding:0 $grid-gutter-width/2;@extend .list-unstyled;
+    li {display:inline-block;height:100%;
+      a {@extend .tabular;
+        span {@extend .cellular;padding:2px $grid-gutter-width/2 0;}
+      }
+    }
+  }
+}
+
+// Footer
+footer {height:$footerHeight;width:100%;position:absolute;bottom:0;left:0;background:url('#{$imagePath}footer_mtns.png') no-repeat 50% 0;background-size:cover;z-index:1;
+  .inner {position:relative;width:100%;height:100%;
+    .inner-l2 {padding:$grid-gutter-width;position:absolute;bottom:0;left:0;width:100%;
+      h2 {margin:0;padding-bottom:($grid-gutter-width/3);font-size:3rem;text-align:center;color:lighten($earthMaroon, 40%);@include text-shadow(0 1px 1px #000);}
+      .sitemap {max-width:1000px;margin:0 auto;
+        h4 {margin:0;color:lighten($earthMaroon, 35%);}
+        a {color:#fff;}
+      }
+      .otro {
+        .logos {margin:0 auto;text-align:center;
+          img {max-height:65px;}
+        }
+      }
+    }
+  }
+
+}
+
+// CMS status
+body.cms-admin {
+  nav {top:49px;}
+}

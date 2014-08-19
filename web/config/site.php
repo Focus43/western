@@ -45,10 +45,15 @@
             // in that order, and should set the $_SERVER variable here (then apache takes over
             // for setting server variables when accessed via http
             if( $argv[2] !== null ){
-                $_SERVER['DB1_HOST'] = $argv[2];
-                $_SERVER['DB1_USER'] = $argv[3];
-                $_SERVER['DB1_PASS'] = $argv[4];
-                $_SERVER['DB1_NAME'] = $argv[5];
+                $_SERVER['DATABASE1_HOST'] = $argv[2];
+                $_SERVER['DATABASE1_USER'] = $argv[3];
+                $_SERVER['DATABASE1_PASS'] = $argv[4];
+                $_SERVER['DATABASE1_NAME'] = $argv[5];
+            }else{
+                $_SERVER['DATABASE1_HOST'] = $_SERVER['DB1_HOST'];
+                $_SERVER['DATABASE1_USER'] = $_SERVER['DB1_USER'];
+                $_SERVER['DATABASE1_PASS'] = $_SERVER['DB1_PASS'];
+                $_SERVER['DATABASE1_NAME'] = $_SERVER['DB1_NAME'];
             }
 
             // enable all url rewriting
