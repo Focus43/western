@@ -5,12 +5,13 @@
 // Custom vars
 $fa-font-path:                '/packages/cmr/bower_components/font-awesome/fonts/';
 $imagePath:                   '/packages/cmr/images/';
-$footerHeight:                450px;
+$footerHeight:                375px;
 $earthMaroon:                 #4c2f2f;
 
 // Bootstrap vars
 $font-size-base:              16px;
 $font-family-base:            'Rokkitt', serif;
+$link-color:                  lighten($earthMaroon, 30%);
 
 // Imports
 @import 'compass';
@@ -95,7 +96,9 @@ body.pt-home {
 
 // Nav
 nav {position:fixed;top:0;left:0;width:100%;height:5rem;line-height:1;background:#280b0b;z-index:11;
-  a {color:lighten($earthMaroon, 30%);}
+  a {
+    &:hover {color:lighten($earthMaroon, 45%);}
+  }
   .logo {display:block;font-size:2.4rem;padding:$grid-gutter-width/2 $grid-gutter-width;
     span {display:block;font-size:1.1rem;letter-spacing:0.44rem;position:relative;top:-6px;}
   }
@@ -112,7 +115,7 @@ nav {position:fixed;top:0;left:0;width:100%;height:5rem;line-height:1;background
 footer {height:$footerHeight;width:100%;position:absolute;bottom:0;left:0;background:url('#{$imagePath}footer_mtns.png') no-repeat 50% 0;background-size:cover;z-index:1;
   .inner {position:relative;width:100%;height:100%;
     .inner-l2 {padding:$grid-gutter-width;position:absolute;bottom:0;left:0;width:100%;
-      h2 {margin:0;padding-bottom:($grid-gutter-width/3);font-size:3rem;text-align:center;color:lighten($earthMaroon, 40%);@include text-shadow(0 1px 1px #000);}
+      h2 {margin:0;padding-bottom:($grid-gutter-width/3);font-size:3rem;color:lighten($earthMaroon, 40%);@include text-shadow(0 1px 1px #000);}
       .sitemap {max-width:1000px;margin:0 auto;
         h4 {margin:0;color:lighten($earthMaroon, 35%);}
         a {color:#fff;}
@@ -123,8 +126,12 @@ footer {height:$footerHeight;width:100%;position:absolute;bottom:0;left:0;backgr
         }
       }
     }
+    .legaleze {position:absolute;bottom:0;background:rgba(0,0,0,0.75);color:#555;font-size:13px;text-transform:uppercase;
+      p, a {color:inherit;display:inline-block;line-height:1;margin:0;padding:8px;}
+      &.left {left:0;}
+      &.right {right:0;}
+    }
   }
-
 }
 
 // CMS status

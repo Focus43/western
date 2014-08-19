@@ -1,14 +1,13 @@
 <footer>
     <div class="inner">
         <div class="inner-l2">
-            <h2>CM Ranch ~ Dubois, WY</h2>
             <div class="sitemap">
+                <h2>CM Ranch ~ Dubois, WY</h2>
                 <div class="row">
                     <div class="col-sm-2">
                         <ul class="list-unstyled">
                             <li><h4>Activities</h4></li>
                             <li><a>Horseback Riding</a></li>
-                            <li><a>Children</a></li>
                             <li><a>Fishing</a></li>
                             <li><a>Day Trips</a></li>
                             <li><a>Hiking</a></li>
@@ -63,6 +62,15 @@
                     <li><a><span><img src="<?php echo CMR_IMAGE_PATH; ?>logos/wy-dra.gif" /></span></a></li>
                 </ul>
             </div>
+        </div>
+
+        <div class="legaleze left">
+            <p>Copyright &copy; <?php echo date('Y'); ?> CM Ranch. All Rights Reserved.</p>
+        </div>
+        <div class="legaleze right">
+            <a>Terms of Use</a>
+            <a>Privacy Policies</a>
+            <a>Guest Policies</a>
         </div>
     </div>
 </footer>
