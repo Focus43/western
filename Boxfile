@@ -42,7 +42,7 @@ web1:
   php_post_max_size: "20M"
   php_max_file_uploads: 20
   php_session_save_handler: "redis"
-  php_session_save_path: "tcp://tunnel.pagodabox.io:6379"
+  php_session_save_path: "tcp://192.168.0.2:6379"
 
   # network storage
   network_dirs:
