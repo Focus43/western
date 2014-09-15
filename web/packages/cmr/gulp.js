@@ -29,6 +29,8 @@ module.exports = function( gulp ){
                 _packagePath('bower_components/gsap/src/uncompressed/plugins/ScrollToPlugin.js'),
                 _packagePath('bower_components/gsap/src/uncompressed/plugins/RoundPropsPlugin.js'),
                 _packagePath('bower_components/gsap/src/uncompressed/utils/Draggable.js'),
+                //_packagePath('bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js'),
+                //_packagePath('bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js'),
                 _packagePath('js/3rd_party/*.js')
             ],
             app: [

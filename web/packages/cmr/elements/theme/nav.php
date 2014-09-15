@@ -1,6 +1,9 @@
 <nav>
     <a class="logo pull-left">CMRanch<span>Dubois, WY</span></a>
-    <ul class="pull-right">
+    <a class="pull-right stacks visible-xs visible-sm">
+        <i class="fa fa-bars"></i>
+    </a>
+    <ul class="pull-right hidden-sm hidden-xs">
         <li><a><span>Activities</span></a></li>
         <li><a><span>Lodging</span></a></li>
         <li><a><span>Specials</span></a></li>

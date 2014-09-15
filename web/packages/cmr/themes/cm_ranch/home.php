@@ -10,14 +10,67 @@
     <?php Loader::packageElement('theme/nav', 'cmr'); ?>
 
     <section id="masthead">
-        <div style="position:relative;width:100%;height:100%;">
-            <div class="tabular">
-                <div class="cellular">
-                    <article>
-                        <h2>Family Time</h2>
-                        <p>CM Ranch is uniquely situated in a serene valley of Dubois, WY, providing a playground for family bonding and activities.</p>
-                        <a>See Our Family Activities</a>
-                    </article>
+
+        <div id="gliderInstance" class="glider">
+            <a class="glider-control prev">
+                <i class="flaticon-arrow414"></i>
+            </a>
+            <a class="glider-control next">
+                <i class="flaticon-bottom4"></i>
+            </a>
+            <div class="glider-nav">
+                <ul class="dots list-unstyled"></ul>
+            </div>
+            <div class="glider-nodes">
+                <div class="node active" data-bg="<?php echo CMR_IMAGE_PATH; ?>photos/evening.jpg">
+                    <div class="tabular">
+                        <div class="cellular">
+                            <article>
+                                <?php $a = new Area('Editable 1'); $a->display($c); ?>
+                                <a>Learn More <i class="fa fa-plus-square-o"></i></a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="node" data-bg="<?php echo CMR_IMAGE_PATH; ?>photos/lasso.jpg" data-bg-vert="top">
+                    <div class="tabular">
+                        <div class="cellular">
+                            <article>
+                                <?php $a = new Area('Editable 2'); $a->display($c); ?>
+                                <a>Learn More <i class="fa fa-plus-square-o"></i></a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="node" data-bg="<?php echo CMR_IMAGE_PATH; ?>photos/mtns.jpg">
+                    <div class="tabular">
+                        <div class="cellular">
+                            <article>
+                                <?php $a = new Area('Editable 3'); $a->display($c); ?>
+                                <a>Learn More <i class="fa fa-plus-square-o"></i></a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="node" data-bg="<?php echo CMR_IMAGE_PATH; ?>photos/guitar.jpg">
+                    <div class="tabular">
+                        <div class="cellular">
+                            <article>
+                                <?php $a = new Area('Editable 4'); $a->display($c); ?>
+                                <a>Learn More <i class="fa fa-plus-square-o"></i></a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="node" data-bg="<?php echo CMR_IMAGE_PATH; ?>photos/horses.jpg">
+                    <div class="tabular">
+                        <div class="cellular">
+                            <article>
+                                <?php $a = new Area('Editable 5'); $a->display($c); ?>
+                                <a>Learn More <i class="fa fa-plus-square-o"></i></a>
+                            </article>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,9 +78,7 @@
 
     <section id="intro">
         <div class="inner">
-            <h1 style="text-align:center;">Welcome To CM Ranch</h1>
-            <p>The CM Ranch is a dude ranch with a fine reputation that has specialized in family vacations since 1927.  The CM offers a variety of outdoor adventures, including horseback riding, fishing, hiking, pack trips, weekly rodeo, cookouts, and more.</p>
-            <p>Located in a secluded valley in the Wind River Mountain Range, the ranch’s proximity to Yellowstone Park and Jackson Hole, Wyoming make it an ideal destination ranch vacation.</p>
+            <?php $a = new Area('Editable 6'); $a->display($c); ?>
         </div>
         <span class="diamonds top"></span>
         <span class="diamonds bottom"></span>
