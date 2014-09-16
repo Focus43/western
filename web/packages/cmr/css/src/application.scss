@@ -30,6 +30,15 @@ $link-color:                  lighten($earthMaroon, 30%);
 @import '../../bower_components/font-awesome/scss/font-awesome';
 @import 'flaticons';
 
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 // Base
 html, body {font-weight:100;height:100%;font-size:$font-size-base;}
@@ -56,31 +65,35 @@ body.pt-home {
           &[data-bg-vert="bottom"] {background-position:50% 100%;}
           &.active {visibility:visible;opacity:1;}
           .cellular {text-align:left;}
-          article {color:#fff;display:inline-block;max-width:500px;position:relative;background:rgba(0,0,0,0.5);@include box-shadow(0 0 10px #000);
+          article {color:#fff;display:inline-block;max-width:500px;position:relative;background:rgba(0,0,0,0.5);@include box-shadow(0 0 10px #000);@include transition(background 0.25s ease);
             h2 {margin:0;padding:($grid-gutter-width/2);background:rgba(darken($earthMaroon, 15%),0.85);}
             p {font-size:1.2rem;margin:0;padding:($grid-gutter-width/2) ($grid-gutter-width/2) 45px ($grid-gutter-width/2);background:rgba($earthMaroon,0.85);@include text-shadow(0 1px 0 #000);}
-            a {line-height:1;display:inline-block;padding:10px;position:absolute;bottom:0;right:0;background:darken($earthMaroon, 15%);color:lighten($earthMaroon, 15%);text-transform:uppercase;
+            a {line-height:1;display:inline-block;padding:10px;position:absolute;bottom:0;right:0;background:darken($earthMaroon, 15%);color:lighten($earthMaroon, 15%);text-transform:uppercase;@include transition(background 0.25s ease);
+              &:hover {background:darken($earthMaroon, 25%);}
               i.fa-plus-square-o {font-size:1.15rem;position:relative;padding-left:2px;top:2px;}
             }
+            &:hover {background:#1d1d1d;}
           }
         }
       }
       // controls
-      .glider-control {text-align:center;display:block;position:absolute;left:0;right:0;width:100%;padding:1rem 0;line-height:1;color:#fff;z-index:1;
+      .glider-control {text-align:center;display:block;position:absolute;left:0;right:0;width:100%;padding:1rem 0;line-height:1;color:#fff;z-index:1;@include unselectable;
         i:before {font-size:3.8rem;@include text-shadow(0 0 1px #000);}
-        &:hover {color:lighten($earthMaroon, 25%);}
+        &:hover {color:lighten($earthMaroon, 20%);}
         &.prev {top:0;
           i {position:relative;top:-9px;}
-          &:hover {@include background-image(linear-gradient(rgba(0,0,0,0.55), transparent));}
+          @include background-image(linear-gradient(rgba(0,0,0,0.55), transparent));
+          //&:hover {@include background-image(linear-gradient(rgba(0,0,0,0.55), transparent));}
         }
         &.next {bottom:0;
-          &:hover {@include background-image(linear-gradient(transparent, rgba(0,0,0,0.55)));}
+          @include background-image(linear-gradient(transparent, rgba(0,0,0,0.55)));
+          //&:hover {@include background-image(linear-gradient(transparent, rgba(0,0,0,0.55)));}
         }
       }
-      .glider-nav {@extend .tabular;position:absolute;top:0;bottom:0;right:0;padding:0 1rem;width:auto;z-index:2;
+      .glider-nav {@extend .tabular;position:absolute;top:0;bottom:0;right:0;padding:0;width:auto;z-index:2;@include unselectable;
         ul {@extend .cellular;line-height:1rem;@include text-shadow(0 0 3px #000);
-          li {color:#fff;font-size:4rem;display:block;padding:0.35rem;cursor:pointer;overflow:hidden;
-            &.active, &:hover {color:lighten($earthMaroon, 25%);}
+          li {color:#fff;font-size:4rem;display:block;padding:0.6rem 0.5rem 0.5rem;cursor:pointer;overflow:hidden;background:rgba(0,0,0,0.65);
+            &.active, &:hover {color:#449d44;}
           }
         }
       }
@@ -102,7 +115,8 @@ body.pt-home {
     .bg-full {position:absolute;top:0;left:0;right:0;bottom:0;background:url('#{$imagePath}photos/cowboys.jpg') no-repeat 50% 50%;background-size:cover;@include filter(grayscale(0.9) sepia(0.5));}
     .cellular {color:#fff;position:relative;z-index:1;
       h1 {margin:0;padding-bottom:($grid-gutter-width);font-size:5rem;font-family:'Great Vibes', cursive;font-weight:bold;@include text-shadow(0 0 10px #000);}
-      .list-inline {font-size:1.4rem;
+      .list-inline {font-size:1.4rem;margin-bottom:0;
+        li {margin-bottom:0.8rem;}
         a {color:lighten($earthMaroon, 35%);padding:($grid-gutter-width/2);line-height:1;display:block;background:rgba($earthMaroon, 0.9);@include text-shadow(0 1px 0 #000);@include transition(all 0.25s ease);
           &:hover {background:$earthMaroon;color:#fff;}
         }
